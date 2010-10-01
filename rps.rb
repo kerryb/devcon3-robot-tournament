@@ -1,1 +1,1 @@
-puts %w(rock paper scissors)[rand(3)]
+puts "scissors"
