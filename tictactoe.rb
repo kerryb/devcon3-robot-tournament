@@ -3,12 +3,25 @@
 @chars = @input.split(//)
 @board = [@chars[0..2], @chars[3..5], @chars[6..8]]
 
+module Enumerable
+  def count(*a)
+    inject(0) do |c, e| 
+      if a.size == 1          # suspect, but this is how it works
+        (a[0] == e) ? c + 1 : c
+      else
+        yield(e) ? c + 1 : c
+      end
+    end
+  end
+end
+
 def play x, y
   puts y * 3 + x
   exit
 end
 
 def must_block_row x, y
+  #puts @board.inspect
   @board[y].count(@them) == 2
 end
 
