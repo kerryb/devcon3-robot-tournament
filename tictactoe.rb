@@ -21,7 +21,6 @@ def play x, y
 end
 
 def must_block_row x, y
-  #puts @board.inspect
   @board[y].count(@them) == 2
 end
 
@@ -30,7 +29,11 @@ def must_block_column x, y
 end
 
 def must_block_diagonal x, y
-  false
+  if x == y
+    [@board[0][0], @board[1][1], @board[2][2]].count(@them) == 2
+  elsif x == 2 - y
+    [@board[0][2], @board[1][1], @board[2][0]].count(@them) == 2
+  end
 end
 
 if @chars.count("0") > @chars.count("x")
