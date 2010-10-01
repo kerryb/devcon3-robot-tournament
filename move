@@ -1,1 +1,1 @@
-ruby rps.rb
+ruby tictactoe.rb $1
